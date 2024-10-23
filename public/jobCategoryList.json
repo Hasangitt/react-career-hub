@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "img": "https://i.ibb.co.com/k9LVYGm/accounts.png",
+        "name": "Creative Design",
+        "job_available": "100+ Jobs Available"
+    },
+    {
+        "id": 2,
+        "img": "https://i.ibb.co.com/smT8CNs/calendar.png",
+        "name": "Account & Finance",
+        "job_available": "300 Jobs Available"
+    },
+    {
+        "id": 3,
+        "img": "https://i.ibb.co.com/B49bnrg/chip.png",
+        "name": "Marketing & Sales",
+        "job_available": "150 Jobs Available"
+    },
+    {
+        "id": 4,
+        "img": "https://i.ibb.co.com/3cbLp0r/creative.png",
+        "name": "Engineering Job",
+        "job_available": "224 Jobs Available"
+    }
+]
