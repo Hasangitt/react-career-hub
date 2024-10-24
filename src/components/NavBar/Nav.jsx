@@ -1,5 +1,12 @@
+
 import { Link, NavLink } from "react-router-dom";
 const Nav = () => {
+
+  const scrollToFeatureJobs = () => {
+    const section = document.getElementById('featured-jobs');
+    section.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <div>
       {/* nav menu */}
@@ -48,7 +55,7 @@ const Nav = () => {
                 </NavLink>
               </ul>
             </div>
-            <NavLink>
+            <NavLink to="/">
               <a className="text-black text-2xl font-bold" href="">
                 CareerHub
               </a>
@@ -74,7 +81,9 @@ const Nav = () => {
             </ul>
           </div>
           <Link className="navbar-end">
-            <button className="bg-[#9873FF] p-3 text-white font-semibold rounded-lg">
+            <button 
+            onClick={scrollToFeatureJobs}
+            className="bg-[#9873FF] p-3 text-white font-semibold rounded-lg">
               Start Applying
             </button>
           </Link>

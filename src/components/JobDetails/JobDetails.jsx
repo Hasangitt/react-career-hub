@@ -1,6 +1,10 @@
+
 import { Link, useLoaderData, useParams } from "react-router-dom";
 import Nav from "../NavBar/Nav";
 import JobBanner from "./JobBanner";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { saveJobApplication } from "../StorageUtility/LocalStorage";
 
 const JobDetails = () => {
   const jobs = useLoaderData();
@@ -17,6 +21,12 @@ const JobDetails = () => {
     job_title,
     contact_information,
   } = job;
+
+  const notify = () => {
+    saveJobApplication(idInt);
+    toast("you are applied successfully!");
+  }
+
   return (
     <>
       <div>
@@ -67,12 +77,13 @@ const JobDetails = () => {
             </p>
           </div>
           <div>
-            <Link to="/applied jobs">
-              <button className="btn w-full">Applied Job</button>
-            </Link>
+              <button onClick={notify} className="btn w-full">
+                Applied Job
+              </button>
           </div>
         </div>
       </div>
+      <ToastContainer />
     </>
   );
 };

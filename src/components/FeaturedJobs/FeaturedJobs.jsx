@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import FeatureJob from "../FeatureJob/FeatureJob";
-import { Link } from "react-router-dom";
+
 
 const FeaturedJobs = () => {
   const [jobFeatures, setJobFeatures] = useState([]);
@@ -13,7 +13,7 @@ const FeaturedJobs = () => {
   }, []);
 
   return (
-    <div className="bg-white ml-80 mr-80">
+    <div id="featured-jobs" className="bg-white ml-80 mr-80">
       <div className="text-center space-y-5 mb-5">
         <h1 className="text-4xl text-black font-bold">Featured Jobs</h1>
         <p className="text-xl font-semibold text-gray-600">
