@@ -5,7 +5,7 @@ const FeatureJob = ({jobFeature}) => {
 
     const {id, logo, job_title, company_name, remote_or_onsite, location, job_type, salary } = jobFeature;
     return (
-        <div className="p-10 bg-white border border-amber-100 rounded-lg space-y-2 flex-col flex w-[650] h-[300px]">
+        <div className="p-10 bg-white border border-black rounded-lg space-y-2 flex-col flex w-[600] h-auto">
             <img className="w-[124px]" src={logo} alt="" />
             <h1 className="text-2xl text-black">{job_title}</h1>
             <h5 className=" text-gray-600">{company_name}</h5>
@@ -17,7 +17,9 @@ const FeatureJob = ({jobFeature}) => {
                 <p>Loacation: {location}</p>
                 <p>Salary: {salary}</p>
             </div>
-            <Link><button className="btn mt-4">View Details</button></Link>
+            <Link to={`/job/${id}`}>
+            <button className="btn mt-4">View Details</button>
+            </Link>
         </div>
     );
 };

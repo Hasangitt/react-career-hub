@@ -12,7 +12,7 @@ const JobCategoryLists = () => {
 
   return (
     // comment for mr problem
-    <div className="bg-white space-y-8 ml-80 mr-80 mb-10">
+    <div className="bg-white space-y-8 ml-80 mr-80">
       <div className="text-center space-y-4">
         <h1 className="text-4xl text-black font-bold">Job Category List</h1>
         <p className="text-xl font-semibold text-gray-500">
