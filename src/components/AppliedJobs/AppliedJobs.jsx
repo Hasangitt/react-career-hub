@@ -8,23 +8,58 @@ import UserAppliedJob from "./UserAppliedJob";
 const AppliedJobs = () => {
   const jobs = useLoaderData();
   const [appliedJobs, setAppliedJobs] = useState([]);
+  const [displayAppliedJobs, setDisplayAppliedJobs] = useState([]);
+
+  const handleJobsFilter = filter =>{
+    if(filter === 'all'){
+      setDisplayAppliedJobs(appliedJobs);
+    }
+    else if (filter === 'remote'){
+      const remoteJobs = appliedJobs.filter(job => job.remote_or_onsite === 'Remote');
+      setDisplayAppliedJobs(remoteJobs);
+    }
+    else if(filter === 'onsite'){
+      const onsiteJobs = appliedJobs.filter(job => job.remote_or_onsite === 'Onsite');
+      setDisplayAppliedJobs(onsiteJobs);
+    }
+  }
+
 
   useEffect(() => {
     const storedIds = getStoreJobApplication();
     if (jobs.length > 0) {
-      const appliedJobs = jobs.filter((job) => storedIds.includes(job.id));
+      const appliedJobs = Object.values(jobs).filter((job) =>
+        storedIds.includes(job.id)
+      );
       setAppliedJobs(appliedJobs);
+      setDisplayAppliedJobs(appliedJobs);
     }
-  }, []);
+  }, [jobs]);
 
   return (
     <div>
       <Nav></Nav>
       <AppliedBanner></AppliedBanner>
+      <div className="flex justify-center mt-5">
+        <details className="dropdown">
+          <summary className="btn m-1">Sort By</summary>
+          <ul className="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+            <li>
+              <a onClick={() => handleJobsFilter('all')}>All</a>
+            </li>
+            <li>
+              <a onClick={() => handleJobsFilter('remote')}>Remote</a>
+            </li>
+            <li>
+              <a onClick={() => handleJobsFilter('onsite')}>Onsite</a>
+            </li>
+          </ul>
+        </details>
+      </div>
       <div>
-        {
-            appliedJobs.map(job => <UserAppliedJob key={job.id} job={job}></UserAppliedJob>)
-        }
+        {displayAppliedJobs.map((job) => (
+          <UserAppliedJob key={job.id} job={job}></UserAppliedJob>
+        ))}
       </div>
     </div>
   );
